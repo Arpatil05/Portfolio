@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube Box Animation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            perspective: 580px;
+            transition: all .4s;
+            background: rgb(2,0,36);
+            background: radial-gradient(circle rgba(2,0,36,1) 0%,
+             rgba(0,0,0,1) 15%, rgba(121,9,9,1) 100%);
+        }
+
+        body:hover {
+            perspective: 1500px;
+        }
+
+        .wrapper {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transition: all 15s;
+            transform: rotateZ(0) rotateX(0) rotateY(0);
+            transform-style: preserve-3d;
+            
+        }
+
+        .wrapper:hover {
+            transform: rotateZ(0deg) rotateX(90deg) rotateY(310deg);
+        }
+
+        .face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: all 5s;
+            opacity: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .face:nth-child(1) {
+            background-image: url(/Image/Wonder\ women.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-origin: center left;
+            transform: rotateY(90deg) translatex(-150px);
+        }
+
+        .face:nth-child(2) {
+            background-image: url(/Image/Aquaman.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-origin: center right;
+            transform: rotateY(-90deg) translatex(150px);
+
+        }
+
+        .face:nth-child(3) {
+            background-image: url(/Image/Riddler.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-origin: center top;
+            transform: rotatex(-90deg) translatey(-150px);
+        }
+
+        .face:nth-child(4) {
+            background-image: url(/Image/Superman.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-origin: center bottom;
+            transform: rotatex(90deg) translatey(150px);}
+
+        .face:nth-child(5) {
+            background-image: url(/Image/Batman.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-origin: center bottom;
+            transform: translateZ(-150px);
+        }
+
+        .face:nth-child(6) {
+            background-image: url(/Image/Jokar.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-origin: center bottom;
+            transform: translatez(150px);
+        }
+
+     </style>
+</head>
+<body> 
+    <div class="wrapper">
+        <div class="face" title="Wonder Women"></div>
+        <div class="face" title="Aquaman"></div>
+        <div class="face" title="Riddler"></div>
+        <div class="face" title="Superman"></div>
+        <div class="face" title="Batman"></div>
+        <div class="face" title="Jokar"></div>
+    </div>
+</body>
+</html>
