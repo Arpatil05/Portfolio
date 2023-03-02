@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="Style.css">
+    <script src="Script.js"></script>
+</head>
+
+<body class="container-fluid">
+    <img src="./img/Hotel img.jpg" height="300" width="100%">
+    <h1>Hotel Registeration Form</h1>
+    <section>
+        <div class="accordion" id="roomForm">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class=" w-100" data-bs-target="#customer" data-bs-toggle="collapse">
+                        Customer Info
+                    </button>
+                </div>
+                <div class="accordion-collapse collapse show" id="customer" data-bs-parent="#hotelForm">
+                    <div class="accordion-body">
+                        <dl>
+                            <dt>Customer Name</dt>
+                            <dd><input type="text" id="textName" class="form-control"></dd>
+                            <dt>Chekc in Date</dt>
+                            <dd><input type="date" id="textDate" class="form-control"></dd>
+                            <dt>Total No fo Days</dt>
+                            <dd><input type="number" id="textDay"  class="form-control"></dd>
+                            <dt>Total No of Person</dt>
+                            <dd><input type="number" id="textPerson" min="1" class="form-control"></dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class=" w-100" data-bs-target="#room" data-bs-toggle="collapse">
+                        Select Room Type
+                    </button>
+                </div>
+                <div class="accordion-collapse collapse" id="room" data-bs-parent="#hotelForm">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./img/Deluxe img.jpg" class="card-img-top" height="200">
+                                    <div class="card-header">
+                                        <h2>Deleux Room</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3> <input type="radio" class="form-check-input" name="room"
+                                                value="Deleux Room" id="optDelux"> &#8377; 2500/-</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./img/Suite img.webp" class="card-img-top" height="200">
+                                    <div class="card-header">
+                                        <h2>Suite Room</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3> <input type="radio" class="form-check-input" name="room" value="Suite Room"
+                                                id="optSuite"> &#8377; 4000/-</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="w-100" data-bs-target="#amenities" data-bs-toggle="collapse">
+                        Select Amenities
+                    </button>
+                </div>
+                <div class="accordion-collapse collapse" id="amenities" data-bs-parent="#hotelForm">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./img/AC img.webp" class="card-img-top" height="200">
+                                    <div class="card-header">
+                                        <h2>A/C</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3> <input type="checkbox" class="form-check-input" name="amenities" value="AC" id="optAc">
+                                            &#8377; 1000/-</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./img/Locker img.webp" class="card-img-top" height="200">
+                                    <div class="card-header">
+                                        <h2>Locker</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3> <input type="checkbox" class="form-check-input" name="amenities" value="Locker"
+                                                id="optLocker"> &#8377; 300/-</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="w-100" data-bs-target="#advance" data-bs-toggle="collapse">
+                        Advance Amount
+                    </button>
+                </div>
+                <div class="accordion-collapse collapse show" id="advance" data-bs-parent="#hotelForm">
+                    <div class="accordion-body d-flex" style="justify-content: center;">
+                    
+                         <b class="mt-1">Advance Amount : </b> &nbsp;<input type="number" value="Advance Amount" min="500" id="textAmount" class="form-control w-25" required>
+    
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-2" style="text-align: center;">
+                <div class="col">
+                    <button  onclick="OrderClick()" class="btn btn-danger w-25" data-bs-target="#Summary"
+                        data-bs-toggle="modal">Book Now</button>
+                    <div class="modal fade" id="Summary">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2>Your Bill Summary</h2>
+                                    <button data-bs-dismiss="modal" class="btn-close" id="close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="col">
+                                        <dl class="row">
+                                            <dt class="col-3">Customer Name</dt>
+                                            <dd class="col-9" id="lblName"></dd>
+                                            <dt class="col-3">Check in Date</dt>
+                                            <dd class="col-9" id="lblDate"></dd>
+                                            <dt class="col-3">Total No of Days</dt>
+                                            <dd class="col-9" id="lblDay"></dd>
+                                            <dt class="col-3">Total No of Person</dt>
+                                            <dd class="col-9" id="lblPerson"></dd>
+                                            <dt class="col-3">Select Room Type</dt>
+                                            <dd class="col-9" id="lblRoom"></dd>
+                                            <dt class="col-3">Select Amenities</dt>
+                                            <dd class="col-9" id="lblAmenities"></dd>
+                                            <dt class="col-3">Advance Amount</dt>
+                                            <dd class="col-9" id="lblAmount"></dd>
+                                            <dt class="col-3">Total</dt>
+                                            <dd class="col-9" id="lblTotal"></dd>
+                                        </dl>
+                                    </div>
+                                    <div class="col">
+                                        <img width="100%" height="200" id="roomPic">
+                                    </div>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
