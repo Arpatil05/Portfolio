@@ -24,12 +24,12 @@ function OrderClick() {
     if (optDelux.checked) {
         roomPic.src = "./img/Deluxe img.jpg";
         roomName = optDelux.value;
-        roomCost = 2500;
+        roomcost = 2500;
     }
     if (optSuite.checked) {
         roomPic.src = "./img/Suite img.webp";
         roomName = optSuite.value;
-        roomCost = 4000;
+        roomcost = 4000;
 
     }
 
@@ -40,20 +40,31 @@ function OrderClick() {
     if(optAc.checked) {
         amenitiesName += optAc.value + "<br>";
         amenitiesCost = 1000;
-        roomCost +=amenitiesCost;
+        roomcost +=amenitiesCost;
 
     }
 
     if(optLocker.checked) {
         amenitiesName += optLocker.value + "<br>";
         amenitiesCost = 500;
-        roomCost +=amenitiesCost;
+        roomcost +=amenitiesCost;
     }
+
+   
 
    var person= document.getElementById("textPerson").value;
    var days =document.getElementById("textDay").value;
    var adv = document.getElementById("textAmount").value;
-      var total = roomCost*person*days-adv;
+      var total = 0;
+
+      if(person<=2) {
+         total = roomcost*days-adv;
+
+     }
+
+      if(person>2) {
+         total = roomcost*days-adv+(person-2)*1000 ;
+      }
 
     
     document.getElementById("lblRoom").innerHTML = roomName;
