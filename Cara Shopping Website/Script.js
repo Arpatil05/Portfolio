@@ -1,6 +1,7 @@
+<script>
 const bar = document.getElementById('bar');
 const close = document.getElementById('close');
-const nav = document.getElementById('navbar');
+const nav = document.getElementById('navbar')
 
 if(bar) {
     bar.addEventListener('click', () => {
@@ -13,3 +14,4 @@ if(close) {
         nav.classList.remove('active');
     } )
 }
+ </script>
